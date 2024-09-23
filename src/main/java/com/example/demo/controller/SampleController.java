@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -49,6 +50,27 @@ public class SampleController {
 		list.add(new SampleDTO(2, "bbb", LocalDate.now()));
 		list.add(new SampleDTO(3, "ccc", LocalDate.now()));
 		model.addAttribute("list", list); // 화면에 리스트 전달
+	}
+	
+	@GetMapping("/ex9")
+    public void ex9(Model model){
+    	List<SampleDTO> list = new ArrayList();
+    	for(int i=1; i<=20;i++) {
+    		list.add(new SampleDTO(i, i+"번", LocalDate.now()));
+    	}
+    	model.addAttribute("list", list);
+    }
+
+	@GetMapping("/ex10")
+	public void ex10(Model model) {
+		SampleDTO sampleDTO = new SampleDTO(1, "aaa", LocalDate.now());
+		model.addAttribute("result", "success"); // 화면에 문자열 전달
+		model.addAttribute("dto", sampleDTO); // 화면에 객체 전달
+	}
+
+	@GetMapping("/ex11")
+	public void ex11(Model model) {
+		model.addAttribute("date", LocalDateTime.now()); // 화면에 현재시간 전달
 	}
 
 }
