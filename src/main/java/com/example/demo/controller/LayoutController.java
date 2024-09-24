@@ -9,7 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/layout")
 public class LayoutController {
 
-	@GetMapping("/exLayout1")
+	@GetMapping({"/exLayout1",
+		"/exLayout2", 
+		"/fragment2", 
+		"/fragment3", 
+		"/basic", 
+		"/exSidebar"})
 	public void ex1() { // /layout/exLayout1
 		
 		// 리턴타입이 void면 URL경로가 HTML파일의 경로가 된다
